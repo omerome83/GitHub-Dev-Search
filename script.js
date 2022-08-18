@@ -4,15 +4,6 @@ const card = document.getElementById("github-card");
 const usernameText = document.querySelector(".username-text");
 const search = document.querySelector(".search");
 
-// const avatar = document.querySelector(".github-card__avatar");
-// const gitHubUsername = document.querySelector(".github-card__username");
-// const name = document.querySelector(".github-card__name");
-// const publicRepos = document.querySelector(".github-card__public-repos");
-// const followers = document.querySelector(".github-card__followers");
-// const following = document.querySelector(".github-card__following");
-
-// card.style.display = "none";
-
 search.addEventListener("click", (e) => {
   let username = "";
 
@@ -58,8 +49,7 @@ const fetchGitHubApi = async (username) => {
     bio: data.bio,
     followers: data.followers,
     following: data.following,
-    twitterUsername: data.twitter_username,
-    // email: data.email,
+    twitter: data.twitter_username,
     blog: data.blog,
   };
 
@@ -80,31 +70,33 @@ const formatGitHubProfile = (profile) => {
     bio,
     followers,
     following,
-    twitterUsername,
-    // email,
+    twitter,
     blog,
   } = profile;
 
-  // const twitterUrl = "http://www.twitter.com/";
+  const twitterUrl = "https://www.twitter.com";
+
   let date = new Date(joinedDate).toLocaleDateString();
   let lastUpdatedDate = new Date(lastUpdated).toLocaleDateString();
 
-  bio = bio === null ? "This profile has no bio" : bio;
-  twitterUsername = twitterUsername === null ? "Not available" : twitterUsername;
-  // email = email === null ? "No email provided" : email;
-  blog = blog === "" ? "No blog provided" : blog;
+  twitter =
+    twitter === null
+      ? "Not available"
+      : `<a href="${twitterUrl}/${twitter}">${twitter}</a>`;
 
-  // Unhides the container as it was initially set to display: none
+  blog = blog === "" ? "No blog provided" : `<a href="${blog}">${blog}</a>`;
+
+  // Displays the container as it was initially set to display: none
   card.style.display = "grid";
 
+  // Generates the HTML of the elements that were returned from the search
   let html = `
         <img id="github-card__avatar" src="${avatar}" alt="">
         <h3 id="github-card__name">${name}</h3>
         <a href="${url}" ><p id="github-card__username">@${username}</p></a>
         <p id="github-card__bio">${bio}</p>
         <p id="github-card__joined-date">Joined ${date}</p>
-        <p id="github-card__last-updated">Last updated on ${lastUpdatedDate}</p>
-        
+        <p id="github-card__last-updated">Last updated on ${lastUpdatedDate}</p>        
         <div id="github-card__stats-container">
             <table>
                 <tr>
@@ -119,8 +111,8 @@ const formatGitHubProfile = (profile) => {
                 </tr>
             </table>
         </div>
-        <div id="github-card__twitter"><img src="./images/twitter.png"><span>${twitterUsername}</span></div>
-        <div id="github-card__blog"><img src="./images/link-24.png"><span>${blog}</span></div>
+        <div id="github-card__twitter"><img src="./images/twitter.png">${twitter}</div>
+        <div id="github-card__blog"><img src="./images/link-24.png">${blog}</div>
     `;
 
   card.innerHTML = html;
