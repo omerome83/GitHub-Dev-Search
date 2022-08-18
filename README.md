@@ -2,6 +2,6 @@
 Search User Profiles from GitHub
 
 ## Screenshot
-[](./screenshot.png)
+![](./screenshot.png)
 
 Work in progress.
