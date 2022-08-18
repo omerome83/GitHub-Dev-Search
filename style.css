@@ -167,6 +167,7 @@ a {
 }
 
 #github-card__name {
+  color: var(--color-white);
   place-self: center start;
   grid-area: name;
 }
