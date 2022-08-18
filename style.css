@@ -119,6 +119,7 @@ input {
 
 a {
   text-decoration: none;
+  color: var(--color-sea-blue);
 }
 
 .app-name {
@@ -162,7 +163,7 @@ a {
 
 #github-card__username {
   margin-bottom: 3em;
-  color: var(--color-light-blue);
+  color: var(--color-sea-blue);
   grid-area: username;
 }
 
