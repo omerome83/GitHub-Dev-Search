@@ -96,9 +96,9 @@ const formatGitHubProfile = (profile) => {
 
   // Generates the HTML of the elements that were returned from the search
   let html = `
-        <img id="github-card__avatar" src="${avatar}" alt="">
+        <img id="github-card__avatar" src="${avatar}" alt="${name}">
         <h3 id="github-card__name">${name}</h3>
-        <a href="${url}" ><p id="github-card__username">@${username}</p></a>
+        <a href="${url}"><p id="github-card__username">@${username}</p></a>
         <p id="github-card__bio">${bio}</p>
         <p id="github-card__joined-date">Joined ${date}</p>
         <p id="github-card__last-updated">Last updated on ${lastUpdatedDate}</p>        
@@ -117,8 +117,8 @@ const formatGitHubProfile = (profile) => {
             </table>
         </div>
         <div id="github-card__twitter"><img src="./images/twitter.png">${twitter}</div>
-        <div id="github-card__location"><img src="./images/location-24.png">${location}</div>
-        <div id="github-card__blog"><img src="./images/link-24.png">${blog}</div>
+        <div id="github-card__location"><img src="./images/location.png">${location}</div>
+        <div id="github-card__blog"><img src="./images/link.png">${blog}</div>
     `;
 
   card.innerHTML = html;
