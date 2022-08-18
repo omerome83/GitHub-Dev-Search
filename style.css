@@ -98,7 +98,7 @@ body {
 
 .github-container {
   margin: 0 auto;
-  max-width: 40em;
+  max-width: 50em;
 }
 
 .github-search {
@@ -142,9 +142,9 @@ a {
   grid-template-areas:
     "avatar         name        joined-date"
     "avatar         username    ."
-    "avatar         bio         bio"
+    "bio            bio         bio"
     "stats          stats       stats"
-    "twitter        .           .";
+    "twitter        email       blog";
 
   /* max-width: 35em; */
   padding: 2em;
@@ -167,7 +167,18 @@ a {
 }
 
 #github-card__name {
+  place-self: center start;
   grid-area: name;
+}
+
+#github-card__joined-date {
+  place-self: center start;
+  grid-area: joined-date;
+}
+#github-card__bio {
+  margin: 1em 0;
+  grid-area: bio;
+  place-self: center;
 }
 
 #github-card__stats-container {
@@ -185,20 +196,8 @@ a {
 #github-card__stats-container th,
 td {
   padding: 0 3em;
-  text-align: center;
+  /* place-self: center; */
 }
-
-#github-card__joined-date {
-  grid-area: joined-date;
-}
-#github-card__bio {
-  margin: 1em 0;
-  grid-area: bio;
-}
-
-/* #github-card__url {
-  grid-area: url;
-} */
 
 #github-card__public-repos {
   color: var(--color-white);
@@ -222,7 +221,30 @@ td {
 }
 
 #github-card__twitter {
-  justify-content: space-around;
-  align-items: flex-start;
+  font-size: 0.75rem;
+  margin-top: 1em;
+  place-self: center;
   grid-area: twitter;
+}
+
+#github-card__email {
+  font-size: 0.75rem;
+  margin-top: 1em;
+  place-self: center;
+  grid-area: email;
+}
+
+#github-card__blog {
+  font-size: 0.75rem;
+  margin-top: 1em;
+  place-self: center;
+  grid-area: blog;
+}
+
+#github-card__twitter img,
+#github-card__email img,
+#github-card__blog img {
+  /* height: 24px;
+  width: 24px; */
+  display: inline-block;
 }

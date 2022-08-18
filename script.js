@@ -57,7 +57,9 @@ const fetchGitHubApi = async (username) => {
     bio: data.bio,
     followers: data.followers,
     following: data.following,
-    twitter: data.twitter_username,
+    twitterUsername: data.twitter_username,
+    email: data.email,
+    blog: data.blog,
   };
 
   formatGitHubProfile(profile);
@@ -76,16 +78,20 @@ const formatGitHubProfile = (profile) => {
     bio,
     followers,
     following,
-    twitter,
+    twitterUsername,
+    email,
+    blog,
   } = profile;
 
+  const twitterUrl = "http://www.twitter.com/";
   let date = new Date(joinedDate).toLocaleDateString();
 
-  console.log(date);
-
   bio = bio === null ? "This profile has no bio" : bio;
-  twitter = twitter === null ? "Not available" : twitter;
+  twitterUsername = twitterUsername === null ? "Not available" : twitterUsername;
+  email = email === null ? "No email provided" : email;
+  blog = blog === "" ? "No blog provided" : blog;
 
+  // Unhides the container as it was initially set to display: none
   card.style.display = "grid";
 
   let html = `
@@ -108,7 +114,9 @@ const formatGitHubProfile = (profile) => {
                 </tr>
             </table>
         </div>
-        <div id="github-card__twitter"><img src="./images/twitter.png">${twitter}</div>
+        <div id="github-card__twitter"><img src="./images/twitter.png"><span>${twitterUsername}</span></div>
+        <div id="github-card__email"><img src="./images/mail-24.png"><span>${email}</span></div>
+        <div id="github-card__blog"><img src="./images/link-24.png"><span>${blog}</span></div>
     `;
 
   card.innerHTML = html;
