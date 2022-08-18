@@ -4,19 +4,15 @@ const card = document.getElementById("github-card");
 const usernameText = document.querySelector(".username-text");
 const search = document.querySelector(".search");
 
-search.addEventListener("click", (e) => {
+search.addEventListener("click", () => {
   let username = "";
 
   if (usernameText.value !== "") {
     username = usernameText.value;
 
-    fetchGitHubApi(username)
-      .then((data) => console.log(data))
-      .catch((error) => {
-        console.log(error);
-      });
-  } else {
-    alert("Please enter a username.");
+    fetchGitHubApi(username).catch((error) => {
+      console.log(error);
+    });
   }
 });
 
@@ -26,11 +22,9 @@ usernameText.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && usernameText.value !== "") {
     username = usernameText.value;
 
-    fetchGitHubApi(username)
-      .then((data) => console.log(data))
-      .catch((error) => {
-        console.log(error);
-      });
+    fetchGitHubApi(username).catch((error) => {
+      console.log(error);
+    });
   }
 });
 

@@ -156,7 +156,7 @@ a {
 
 #github-card__avatar {
   grid-area: avatar;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   max-width: 50%;
   border-radius: 50%;
 }
@@ -183,7 +183,7 @@ a {
 }
 
 #github-card__bio {
-  margin: 1em 0;
+  margin-bottom: 2em;
   grid-area: bio;
   place-self: center;
 }
@@ -194,6 +194,7 @@ a {
   grid-template-areas: "repos    followers   following"; */
   place-content: center;
   /* gap: 1em; */
+  margin-bottom: 1em;
   border-radius: 1em;
   padding: 0.5em;
   background-color: var(--color-dark-blue);
@@ -229,21 +230,18 @@ td {
 
 #github-card__twitter {
   font-size: 0.75rem;
-  margin-top: 1em;
   place-self: center;
   grid-area: twitter;
 }
 
 /* #github-card__email {
   font-size: 0.75rem;
-  margin-top: 1em;
   place-self: center;
   grid-area: email;
 } */
 
 #github-card__blog {
   font-size: 0.75rem;
-  margin-top: 1em;
   place-self: center;
   grid-area: blog;
 }
