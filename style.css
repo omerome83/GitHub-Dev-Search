@@ -145,7 +145,7 @@ a {
     "avatar         username    last-updated"
     "bio            bio         bio"
     "stats          stats       stats"
-    "twitter        .           blog";
+    "twitter        location    blog";
 
   /* max-width: 35em; */
   padding: 2em;
@@ -234,11 +234,11 @@ td {
   grid-area: twitter;
 }
 
-/* #github-card__email {
+#github-card__location {
   font-size: 0.75rem;
   place-self: center;
-  grid-area: email;
-} */
+  grid-area: location;
+}
 
 #github-card__blog {
   font-size: 0.75rem;
@@ -247,11 +247,12 @@ td {
 }
 
 #github-card__twitter img,
-/* #github-card__email img, */
+#github-card__location img,
 #github-card__blog img {
   /* height: 24px;
   width: 24px; */
   display: inline-block;
+  /* place-self: center start; */
 }
 
 @media (max-width: 900px) {
@@ -286,7 +287,8 @@ td {
       "joined-date    last-updated"
       "bio            bio"
       "stats          stats"
-      "twitter        blog";
+      "twitter        blog"
+      "location       .";
 
     /* max-width: 35em; */
     padding: 2em;

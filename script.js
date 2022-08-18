@@ -34,8 +34,8 @@ const fetchGitHubApi = async (username) => {
 
   const profile = {
     avatar: data.avatar_url,
-    username: data.login,
     name: data.name,
+    username: data.login,
     publicRepos: data.public_repos,
     url: data.html_url,
     joinedDate: data.created_at,
@@ -44,10 +44,14 @@ const fetchGitHubApi = async (username) => {
     followers: data.followers,
     following: data.following,
     twitter: data.twitter_username,
+    location: data.location,
+    company: data.company,
     blog: data.blog,
   };
 
   formatGitHubProfile(profile);
+
+  console.log(data);
 
   return data;
 };
@@ -55,8 +59,8 @@ const fetchGitHubApi = async (username) => {
 const formatGitHubProfile = (profile) => {
   let {
     avatar,
-    username,
     name,
+    username,
     publicRepos,
     url,
     joinedDate,
@@ -65,6 +69,7 @@ const formatGitHubProfile = (profile) => {
     followers,
     following,
     twitter,
+    location,
     blog,
   } = profile;
 
@@ -73,10 +78,16 @@ const formatGitHubProfile = (profile) => {
   let date = new Date(joinedDate).toLocaleDateString();
   let lastUpdatedDate = new Date(lastUpdated).toLocaleDateString();
 
+  name = name === null ? "" : name;
+
+  bio = bio === null ? "This profile has no bio" : bio;
+
   twitter =
     twitter === null
       ? "Not available"
       : `<a href="${twitterUrl}/${twitter}">${twitter}</a>`;
+
+  location = location === null ? "Not available" : location;
 
   blog = blog === "" ? "No blog provided" : `<a href="${blog}">${blog}</a>`;
 
@@ -106,6 +117,7 @@ const formatGitHubProfile = (profile) => {
             </table>
         </div>
         <div id="github-card__twitter"><img src="./images/twitter.png">${twitter}</div>
+        <div id="github-card__location"><img src="./images/location-24.png">${location}</div>
         <div id="github-card__blog"><img src="./images/link-24.png">${blog}</div>
     `;
 
