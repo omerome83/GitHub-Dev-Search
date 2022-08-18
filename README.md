@@ -1,7 +1,7 @@
 # GitHub Dev Search
-Search User Profiles from GitHub
+Search User Profiles and display their info from GitHub.
 
 ## Screenshot
 ![](./screenshot.png)
 
-Work in progress.
+Work in progress. 👍🏽
