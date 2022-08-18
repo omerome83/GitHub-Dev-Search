@@ -141,10 +141,10 @@ a {
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "avatar         name        joined-date"
-    "avatar         username    ."
+    "avatar         username    last-updated"
     "bio            bio         bio"
     "stats          stats       stats"
-    "twitter        email       blog";
+    "twitter        .           blog";
 
   /* max-width: 35em; */
   padding: 2em;
@@ -175,6 +175,11 @@ a {
   place-self: center start;
   grid-area: joined-date;
 }
+
+#github-card__last-updated {
+  grid-area: last-updated;
+}
+
 #github-card__bio {
   margin: 1em 0;
   grid-area: bio;
@@ -227,12 +232,12 @@ td {
   grid-area: twitter;
 }
 
-#github-card__email {
+/* #github-card__email {
   font-size: 0.75rem;
   margin-top: 1em;
   place-self: center;
   grid-area: email;
-}
+} */
 
 #github-card__blog {
   font-size: 0.75rem;
@@ -242,7 +247,7 @@ td {
 }
 
 #github-card__twitter img,
-#github-card__email img,
+/* #github-card__email img, */
 #github-card__blog img {
   /* height: 24px;
   width: 24px; */

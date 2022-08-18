@@ -54,11 +54,12 @@ const fetchGitHubApi = async (username) => {
     publicRepos: data.public_repos,
     url: data.html_url,
     joinedDate: data.created_at,
+    lastUpdated: data.updated_at,
     bio: data.bio,
     followers: data.followers,
     following: data.following,
     twitterUsername: data.twitter_username,
-    email: data.email,
+    // email: data.email,
     blog: data.blog,
   };
 
@@ -75,20 +76,22 @@ const formatGitHubProfile = (profile) => {
     publicRepos,
     url,
     joinedDate,
+    lastUpdated,
     bio,
     followers,
     following,
     twitterUsername,
-    email,
+    // email,
     blog,
   } = profile;
 
-  const twitterUrl = "http://www.twitter.com/";
+  // const twitterUrl = "http://www.twitter.com/";
   let date = new Date(joinedDate).toLocaleDateString();
+  let lastUpdatedDate = new Date(lastUpdated).toLocaleDateString();
 
   bio = bio === null ? "This profile has no bio" : bio;
   twitterUsername = twitterUsername === null ? "Not available" : twitterUsername;
-  email = email === null ? "No email provided" : email;
+  // email = email === null ? "No email provided" : email;
   blog = blog === "" ? "No blog provided" : blog;
 
   // Unhides the container as it was initially set to display: none
@@ -100,6 +103,8 @@ const formatGitHubProfile = (profile) => {
         <a href="${url}" ><p id="github-card__username">@${username}</p></a>
         <p id="github-card__bio">${bio}</p>
         <p id="github-card__joined-date">Joined ${date}</p>
+        <p id="github-card__last-updated">Last updated on ${lastUpdatedDate}</p>
+        
         <div id="github-card__stats-container">
             <table>
                 <tr>
@@ -115,7 +120,6 @@ const formatGitHubProfile = (profile) => {
             </table>
         </div>
         <div id="github-card__twitter"><img src="./images/twitter.png"><span>${twitterUsername}</span></div>
-        <div id="github-card__email"><img src="./images/mail-24.png"><span>${email}</span></div>
         <div id="github-card__blog"><img src="./images/link-24.png"><span>${blog}</span></div>
     `;
 
