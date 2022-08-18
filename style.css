@@ -111,7 +111,7 @@ body {
 }
 
 input {
-  width: 75%;
+  width: 37.5em;
   background: var(--color-lighter-blue);
   border: none;
   color: var(--color-light-gray);
@@ -122,7 +122,7 @@ a {
 }
 
 .app-name {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   color: var(--color-white);
 }
 
@@ -253,4 +253,65 @@ td {
   /* height: 24px;
   width: 24px; */
   display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .github-container {
+    margin: 0 auto;
+    max-width: 20em;
+  }
+
+  .github-search {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-lighter-blue);
+    border-radius: 1em;
+    padding: 0.75em;
+    margin-bottom: 1em;
+  }
+
+  input {
+    width: 10em;
+    background: var(--color-lighter-blue);
+    border: none;
+    color: var(--color-light-gray);
+  }
+
+  #github-card {
+    /* Initially the card is hidden */
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "avatar         name"
+      "avatar         username"
+      "joined-date    last-updated"
+      "bio            bio"
+      "stats          stats"
+      "twitter        blog";
+
+    /* max-width: 35em; */
+    padding: 2em;
+    background-color: var(--color-lighter-blue);
+    /* gap: 1em; */
+    border-radius: 1em;
+  }
+
+  #github-card__stats-container {
+    display: flex;
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "repos    followers   following"; */
+    place-content: center;
+    /* gap: 1em; */
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: var(--color-dark-blue);
+    grid-area: stats;
+    font-size: 0.75rem;
+  }
+
+  #github-card__stats-container th,
+  td {
+    padding: 0 0.25em;
+    /* place-self: center; */
+  }
 }
