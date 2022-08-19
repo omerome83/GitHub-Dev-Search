@@ -43,7 +43,7 @@ const fetchGitHubApi = async (username) => {
     bio: data.bio,
     followers: data.followers,
     following: data.following,
-    twitter: data.twitter_username,
+    twitterUsername: data.twitter_username,
     location: data.location,
     company: data.company,
     blog: data.blog,
@@ -68,7 +68,7 @@ const formatGitHubProfile = (profile) => {
     bio,
     followers,
     following,
-    twitter,
+    twitterUsername,
     location,
     blog,
   } = profile;
@@ -82,10 +82,10 @@ const formatGitHubProfile = (profile) => {
 
   bio = bio === null ? "This profile has no bio" : bio;
 
-  twitter =
-    twitter === null
+  twitterUsername =
+    twitterUsername === null
       ? "Not available"
-      : `<a href="${twitterUrl}/${twitter}">${twitter}</a>`;
+      : `<a href="${twitterUrl}/${twitterUsername}">${twitterUsername}</a>`;
 
   location = location === null ? "Not available" : location;
 
@@ -116,7 +116,7 @@ const formatGitHubProfile = (profile) => {
                 </tr>
             </table>
         </div>
-        <div id="github-card__twitter"><img src="./images/twitter.png">${twitter}</div>
+        <div id="github-card__twitter"><img src="./images/twitter.png">${twitterUsername}</div>
         <div id="github-card__location"><img src="./images/location.png">${location}</div>
         <div id="github-card__blog"><img src="./images/link.png">${blog}</div>
     `;
