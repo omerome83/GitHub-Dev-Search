@@ -98,10 +98,11 @@ const formatGitHubProfile = (profile) => {
   let html = `
         <img id="github-card__avatar" src="${avatar}" alt="${name}">
         <h3 id="github-card__name">${name}</h3>
-        <a href="${url}"><p id="github-card__username">@${username}</p></a>
-        <p id="github-card__bio">${bio}</p>
         <p id="github-card__joined-date">Joined ${date}</p>
-        <p id="github-card__last-updated">Last updated on ${lastUpdatedDate}</p>        
+        <a href="${url}"><p id="github-card__username">@${username}</p></a>
+        <p id="github-card__last-updated">Last updated on ${lastUpdatedDate}</p>
+        <p id="github-card__bio">${bio}</p>
+        
         <div id="github-card__stats-container">
             <table>
                 <tr>

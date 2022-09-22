@@ -146,11 +146,8 @@ a {
     "bio            bio         bio"
     "stats          stats       stats"
     "twitter        location    blog";
-
-  /* max-width: 35em; */
   padding: 2em;
   background-color: var(--color-lighter-blue);
-  /* gap: 1em; */
   border-radius: 1em;
 }
 
@@ -162,7 +159,7 @@ a {
 }
 
 #github-card__username {
-  margin-bottom: 3em;
+  margin-bottom: 4em;
   color: var(--color-sea-blue);
   grid-area: username;
 }
@@ -190,10 +187,7 @@ a {
 
 #github-card__stats-container {
   display: flex;
-  /* grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "repos    followers   following"; */
   place-content: center;
-  /* gap: 1em; */
   margin-bottom: 1em;
   border-radius: 1em;
   padding: 0.5em;
@@ -204,7 +198,6 @@ a {
 #github-card__stats-container th,
 td {
   padding: 0 3em;
-  /* place-self: center; */
 }
 
 #github-card__public-repos {
@@ -242,7 +235,6 @@ td {
 
 #github-card__blog {
   font-size: 0.75rem;
-  place-self: center;
   grid-area: blog;
 }
 
@@ -252,7 +244,6 @@ td {
   /* height: 24px;
   width: 24px; */
   display: inline-block;
-  /* place-self: center start; */
 }
 
 @media (max-width: 900px) {
@@ -263,7 +254,7 @@ td {
 
   .github-search {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background-color: var(--color-lighter-blue);
     border-radius: 1em;
     padding: 0.75em;
