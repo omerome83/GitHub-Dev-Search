@@ -47,6 +47,7 @@ const fetchGitHubApi = async (username) => {
     location: data.location,
     company: data.company,
     blog: data.blog,
+    email: data.email,
   };
 
   formatGitHubProfile(profile);
@@ -71,6 +72,7 @@ const formatGitHubProfile = (profile) => {
     twitterUsername,
     location,
     blog,
+    email,
   } = profile;
 
   const twitterUrl = "https://www.twitter.com";
@@ -89,7 +91,8 @@ const formatGitHubProfile = (profile) => {
 
   location = location === null ? "Not available" : location;
 
-  blog = blog === "" ? "No blog provided" : `<a href="${blog}">${blog}</a>`;
+  blog = blog === "" ? "No blog provided" : `<a href="${blog}">Blog</a>`;
+  email = email === null ? "No email provided" : `<a href="${email}">Email</a>`;
 
   // Displays the container as it was initially set to display: none
   card.style.display = "grid";
@@ -117,9 +120,12 @@ const formatGitHubProfile = (profile) => {
                 </tr>
             </table>
         </div>
-        <div id="github-card__twitter"><img src="./images/twitter.png">${twitterUsername}</div>
-        <div id="github-card__location"><img src="./images/location.png">${location}</div>
-        <div id="github-card__blog"><img src="./images/link.png">${blog}</div>
+        <div class="github-card__contact-info">
+          <div id="github-card__twitter"><img src="./images/twitter.png">${twitterUsername}</div>
+          <div id="github-card__location"><img src="./images/location.png">${location}</div>
+          <div id="github-card__blog"><img src="./images/link.png">${blog}</div>
+          <div id="github-card__email"><img src="./images/email.png">${email}</div>
+        </div>
     `;
 
   card.innerHTML = html;

@@ -141,11 +141,11 @@ a {
   display: none;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-    "avatar         name        joined-date"
-    "avatar         username    last-updated"
-    "bio            bio         bio"
-    "stats          stats       stats"
-    "twitter        location    blog";
+    "avatar         name          joined-date"
+    "avatar         username      last-updated"
+    "bio            bio           bio"
+    "stats          stats         stats"
+    "contact-info   contact-info  contact-info";
   padding: 2em;
   background-color: var(--color-lighter-blue);
   border-radius: 1em;
@@ -221,26 +221,40 @@ td {
   grid-area: following;
 }
 
-#github-card__twitter {
+.github-card__contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  grid-area: contact-info;
+}
+
+#github-card__twitter,
+#github-card__location,
+#github-card__blog,
+#github-card__email {
   font-size: 0.75rem;
-  place-self: center;
+}
+
+#github-card__twitter {
   grid-area: twitter;
 }
 
 #github-card__location {
-  font-size: 0.75rem;
-  place-self: center;
   grid-area: location;
 }
 
 #github-card__blog {
-  font-size: 0.75rem;
   grid-area: blog;
+}
+
+#github-card__email {
+  grid-area: email;
 }
 
 #github-card__twitter img,
 #github-card__location img,
-#github-card__blog img {
+#github-card__blog img,
+#github-card__email img {
   /* height: 24px;
   width: 24px; */
   display: inline-block;
@@ -279,7 +293,7 @@ td {
       "bio            bio"
       "stats          stats"
       "twitter        blog"
-      "location       .";
+      "location       email";
 
     /* max-width: 35em; */
     padding: 2em;
