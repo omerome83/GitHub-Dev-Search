@@ -156,6 +156,7 @@ a {
   margin-bottom: 2em;
   max-width: 50%;
   border-radius: 50%;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9));
 }
 
 #github-card__username {
